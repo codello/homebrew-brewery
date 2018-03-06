@@ -4,7 +4,7 @@ cask 'font-yorkten' do
 
   url "https://gitlab.com/Codello/homebrew-brewery/raw/master/Resources/Yorkten/yorkten.zip"
   name 'Yorkten'
-  homepage 'https://github.com/Codello/homebrew-brewery/tree/master/Resources/Yorkten'
+  homepage 'https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/Yorkten'
 
   font '*.ttf'
 end
