@@ -1,4 +1,4 @@
-cask 'thesansuhh' do
+cask 'font-thesansuhh' do
   version '1.003'
   sha256 'b8c0467e09d516311094562b5d7bc41795677566423304c2c2cc50a8eaef99e7'
 
