@@ -2,7 +2,7 @@ cask 'font-yorkten' do
   version '1.0'
   sha256 '81f982760c588afb871ff2c340eac4f812aed056aa93a38882efb5fe0aad83a5'
 
-  url "https://gitlab.com/Codello/homebrew-brewery/raw/master/Resources/Yorkten/yorkten.zip?private_token=#{File.open(ENV['HOME'] + '/.gitlab-homebrew-token', 'rb') { |f| f.read }}"
+  url "https://gitlab.com/Codello/homebrew-brewery/uploads/c0afff41dcaea02061bb3b43d09e55a3/yorkten.zip?private_token=#{File.open(ENV['HOME'] + '/.gitlab-homebrew-token', 'rb') { |f| f.read }}"
   name 'Yorkten'
   homepage 'https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/Yorkten'
 
