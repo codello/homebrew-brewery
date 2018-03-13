@@ -2,7 +2,6 @@ class Ultrastar < Formula
     desc "The free and open source karaoke singing game UltraStar Deluxe, inspired by Sony SingStar™"
     homepage "https://usdx.eu"
     url "https://github.com/UltraStar-Deluxe/USDX/archive/v2017.8.0.tar.gz"
-    version "2017.8.0"
     sha256 "215fb349dde829383bb257aae4abda21b4f531a615b6112544fe1a593c3d47f0"
     
     head "https://github.com/UltraStar-Deluxe/USDX.git"
@@ -28,4 +27,3 @@ class Ultrastar < Formula
         prefix.install "UltraStarDeluxe.app"
     end
 end
-
