@@ -7,6 +7,7 @@ cask 'font-thesansuhh' do
   homepage 'https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/TheSansUHH'
 
   font 'TheSansUHH Regular.ttf'
+  font 'TheSansUHH Bold.ttf'
   font 'TheSansUHH Regular Italic.ttf'
   font 'TheSansUHH_TT_Bold_Caps.ttf'
   font 'TheSansUHH_TT_SemiLight_Caps.ttf'
