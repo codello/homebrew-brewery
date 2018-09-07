@@ -1,6 +1,6 @@
 cask 'font-hk-grotesk' do
   version '1.0'
-  sha256 '3eb644374e7df186dde06431f3ae957bad4b8790f619dc21f565593253ca1ae7'
+  sha256 '750e49b186c09e971d51e9831d252402b8d086df7492885a6cbdf1834e98217a'
 
   url "https://www.fontsquirrel.com/fonts/download/hk-grotesk"
   name 'HK Grotesk'
