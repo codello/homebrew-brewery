@@ -6,6 +6,6 @@ cask 'ovftool' do
   name 'OVF Tool'
   homepage 'https://code.vmware.com/tool/ovf/4.1.0'
 
-  pkg 'VMWare OVF Tool.pkg'
+  pkg 'VMWare OVF Tool.pkg', allow_untrusted: true
   uninstall pkgutil: 'com.vmware.ovftool.application'
 end
