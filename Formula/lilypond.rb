@@ -50,7 +50,6 @@ class Lilypond < Formula
   
   head "git://git.savannah.gnu.org/lilypond.git"
   
-  # depends_on "dejavu fonts"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -58,6 +57,8 @@ class Lilypond < Formula
   depends_on "pango"
   depends_on "python@2"
   
+  uses_from_macos "make" => :build
+  uses_from_macos "perl" => :build
   depends_on "gcc" => :build
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
@@ -69,9 +70,6 @@ class Lilypond < Formula
   depends_on "t1utils" => :build
   depends_on LatexRequirement => :build
   depends_on CyrillicRequirement => :build if build.devel?
-  
-  uses_from_macos "make"
-  uses_from_macos "perl"
   
   fails_with :clang do
     build 1100
