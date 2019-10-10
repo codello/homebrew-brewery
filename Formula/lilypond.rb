@@ -76,14 +76,14 @@ class Lilypond < Formula
     cause "LilyPond uses some GCC specific C++ extensions and must be compiled with GCC"
   end
   
-  resource "TeX Gyre Fonts" do
+  resource "TeX Gyre Font Collection" do
     url "http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg2_501otf.zip"
     sha256 "d7f8be5317bec4e644cf16c5abf876abeeb83c43dbec0ccb4eee4516b73b1bbe"
   end
   
   resource "New Century Schoolbook Fonts" do
-    url "https://github.com/Distrotech/gs-fonts/archive/master.zip"
-    sha256 "f963c95ad1ab620df84aeaec0b0a5481151c74a8d313b969fa1d1a41c43bc5cb"
+    url "https://github.com/Distrotech/gs-fonts/tarball/4a4f4372b5378ac7181f9aca673437bdd51c36c4"
+    sha256 "2f08bbdc06631c24f2b63ffadc36360331b8972081ddeed422f503d2e05d1605"
   end
   
   def install
@@ -93,7 +93,7 @@ class Lilypond < Formula
         font_dir.install Dir['usr/share/ghostscript/fonts/*']
       }
     else
-      font_dir.install resource("TeX Gyre Fonts")
+      font_dir.install resource("TeX Gyre Font Collection")
     end
     
     system "./autogen.sh", "--noconfigure"
