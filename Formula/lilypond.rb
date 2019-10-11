@@ -50,15 +50,16 @@ class Lilypond < Formula
   
   head "git://git.savannah.gnu.org/lilypond.git"
   
+  uses_from_macos "python"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
   depends_on "sadhen/sadhen/guile@1.8"
   depends_on "pango"
-  depends_on "python@2"
   
   uses_from_macos "make" => :build
   uses_from_macos "perl" => :build
+  depends_on "python@2" => :build
   depends_on "gcc" => :build
   depends_on "pkg-config" => :build
   depends_on "autoconf" => :build
