@@ -1,8 +1,15 @@
-# Brewery
-A Collection of Custom Formulae for Homebrew.
+# Codello Brewery
 
+## How do I install these formulae?
+`brew install codello/brewery/<formula>`
 
+Or `brew tap codello/brewery` and then `brew install <formula>`.
 
-## Installation
+Or install via URL (which will not receive updates):
 
-Some of the Formulae and Casks require proper authentication in order to download resources. Currently all private resources are contained within the wiki of this repo. In order to successfully install the respective formulae and casks you need to create a `~/.gitlab-homebrew-token` file (with no file extension) containing a GitLab personal access token valid for accessing the private resources.
+```
+brew install https://raw.githubusercontent.com/Codello/homebrew-Brewery/master/Formula/<formula>.rb
+```
+
+## Documentation
+`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
