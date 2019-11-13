@@ -1,8 +1,8 @@
 cask 'fullcontrol' do
-  version '3.1.9'
-  sha256 'e9c27969e7abf493ff9cb0ec0300cd19fff3b6303502b7dc9e984199b29cdda8'
+  version '3.3'
+  sha256 '34d4b2248bb2140ae1bcf7dc8381d1ddda4aaacb5ae714993d73edce3e1ac97d'
 
-  url 'https://fullcontrol.cescobaz.com/download/Mac/3.1.9/FullControlHelper_3.1.9.dmg'
+  url 'https://fullcontrol.cescobaz.com/download/Mac/3.3/FullControlHelper_3.3.dmg'
   name 'FullControl'
   homepage 'https://fullcontrol.cescobaz.com'
 
