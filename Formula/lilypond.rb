@@ -56,6 +56,7 @@ class Lilypond < Formula
   depends_on "ghostscript"
   depends_on "sadhen/sadhen/guile@1.8"
   depends_on "pango"
+  depends_on "codello/brewery/extractpdfmark" => :recommended
   
   uses_from_macos "make" => :build
   uses_from_macos "perl" => :build
