@@ -39,27 +39,25 @@ class Lilypond < Formula
   head "git://git.savannah.gnu.org/lilypond.git"
 
   stable do
-    url "http://lilypond.org/download/sources/v2.18/lilypond-2.18.2.tar.gz"
-    sha256 "329d733765b0ba7be1878ae3f457dbbb875cc2840d2b75af4afc48c9454fba07"
+    url "http://lilypond.org/download/sources/v2.20/lilypond-2.20.0.tar.gz"
+    sha256 "595901323fbc88d3039ca4bdbc2d8c5ce46b182edcb3ea9c0940eba849bba661"
   end
 
   devel do
-    url "http://lilypond.org/download/sources/v2.19/lilypond-2.19.83.tar.gz"
-    sha256 "96ba4f4b342d21057ad74d85d647aea7e47a5c24f895127c2b3553a252738fb3"
+    url "http://lilypond.org/download/sources/v2.19/lilypond-2.19.84.tar.gz"
+    sha256 "94dcc66447f24966f28eda72c79e1ec16143b8ea4a537cc9f97d017cc0c0dd11"
   end
 
   depends_on "autoconf" => :build
   depends_on "bison" => :build
-  depends_on CyrillicRequirement => :build if build.devel?
+  depends_on CyrillicRequirement => :build
   depends_on "flex" => :build
   depends_on "fontforge" => :build
-  depends_on "gcc" => :build
   depends_on "gettext" => :build
   depends_on LatexRequirement => :build
   uses_from_macos "make" => :build
   uses_from_macos "perl" => :build
   depends_on "pkg-config" => :build
-  depends_on "python@2" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build
 
@@ -72,37 +70,21 @@ class Lilypond < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
-  fails_with :clang do
-    build 1100
-    cause "LilyPond uses some GCC specific C++ extensions and must be compiled with GCC"
-  end
-
   resource "TeX Gyre Font Collection" do
     url "http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg2_501otf.zip"
     sha256 "d7f8be5317bec4e644cf16c5abf876abeeb83c43dbec0ccb4eee4516b73b1bbe"
   end
 
-  resource "New Century Schoolbook Fonts" do
-    url "https://github.com/Distrotech/gs-fonts/archive/4a4f4372b5378ac7181f9aca673437bdd51c36c4.tar.gz"
-    sha256 "53d6d5fdbda26fbb978923f18f65bb825f79e04609df46dd6eec819c15c93474"
-  end
-
   def install
     font_dir = Pathname("fonts").expand_path
-    if build.stable?
-      resource("New Century Schoolbook Fonts").stage do
-        font_dir.install Dir["usr/share/ghostscript/fonts/*"]
-      end
-    else
-      font_dir.install resource("TeX Gyre Font Collection")
-    end
+    font_dir.install resource("TeX Gyre Font Collection")
 
     system "./autogen.sh", "--noconfigure"
     mkdir "build" do
       system "../configure", \
           "--prefix=#{prefix}", \
           "--disable-documentation", \
-          build.stable? ? "--with-ncsb-dir=#{font_dir}" : "--with-texgyre-dir=#{font_dir}"
+          "--with-texgyre-dir=#{font_dir}"
       system "make", "-j#{Etc.nprocessors + 1}"
       system "make", "install"
     end
