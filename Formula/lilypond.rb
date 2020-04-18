@@ -44,8 +44,8 @@ class Lilypond < Formula
   end
 
   devel do
-    url "http://lilypond.org/download/sources/v2.19/lilypond-2.19.84.tar.gz"
-    sha256 "94dcc66447f24966f28eda72c79e1ec16143b8ea4a537cc9f97d017cc0c0dd11"
+    url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.0.tar.gz"
+    sha256 "77ce155feba3871360b529d5d14ade7c8d41808769bee20fe66d918370a5ba4b"
   end
 
   depends_on "autoconf" => :build
@@ -55,13 +55,10 @@ class Lilypond < Formula
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
   depends_on LatexRequirement => :build
-  uses_from_macos "make" => :build
-  uses_from_macos "perl" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build
 
-  uses_from_macos "python"
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "ghostscript"
@@ -69,6 +66,10 @@ class Lilypond < Formula
   depends_on "sadhen/sadhen/guile@1.8"
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
+
+  uses_from_macos "make" => :build
+  uses_from_macos "perl" => :build
+  uses_from_macos "python"
 
   resource "TeX Gyre Font Collection" do
     url "http://www.gust.org.pl/projects/e-foundry/tex-gyre/whole/tg2_501otf.zip"
