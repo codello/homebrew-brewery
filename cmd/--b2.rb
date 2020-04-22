@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require "cli/parser"
-require_relative "../auth.rb"
 
 module Homebrew
   module_function
@@ -20,6 +19,7 @@ module Homebrew
   def __b2
     __b2_args.parse
     
+    require_relative "../lib/auth.rb"
     Auth::ensure_env "HOMEBREW_B2_KEY_ID", :message => "B2 Key ID: "
     Auth::ensure_env "HOMEBREW_B2_APPLICATION_KEY", :message => "B2 Application Key: ", :secret => true, :stdin => true
     system "brew", *args.remaining

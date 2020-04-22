@@ -1,10 +1,10 @@
-require_relative "../B2DownloadStrategy.rb"
+require_relative "../lib/B2DownloadStrategy.rb"
 
 cask 'font-yorkten' do
   version '1.0'
   sha256 '81f982760c588afb871ff2c340eac4f812aed056aa93a38882efb5fe0aad83a5'
 
-  url "b2:/brewery/fonts/yorkten.zip", :using => B2DownloadStrategy
+  url "b2:/Brewery/fonts/yorkten.zip", :using => B2DownloadStrategy
   name 'Yorkten'
   homepage 'https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/Yorkten'
 
