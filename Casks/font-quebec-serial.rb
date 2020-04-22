@@ -1,10 +1,10 @@
-require_relative "../lib/B2DownloadStrategy.rb"
+require_relative "../lib/b2_download_strategy.rb" unless defined?(B2DownloadStrategy)
 
 cask 'font-quebec-serial' do
   version '1.0'
   sha256 '351871cbc4530bc2653d0d0b45afae911430880a93f97cc1ea7a50471efb365e'
 
-  url "b2:/Brewery/fonts/quebec-serial.zip", :using => B2DownloadStrategy
+  url "b2://backblazeb2.com/Brewery/fonts/quebec-serial.zip"
   name 'Quebec Serial'
   homepage 'https://gitlab.com/Codello/homebrew-brewery/'
 
