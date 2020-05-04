@@ -11,7 +11,7 @@ Or `brew tap codello/brewery` and then `brew install <formula>`.
 Or install via URL (which will not receive updates):
 
 ```
-brew install https://raw.githubusercontent.com/Codello/homebrew-Brewery/master/Formula/<formula>.rb
+brew install https://raw.githubusercontent.com/Codello/homebrew-brewery/master/Formula/<formula>.rb
 ```
 
 ## Private Resources
