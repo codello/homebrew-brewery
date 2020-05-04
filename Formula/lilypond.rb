@@ -44,8 +44,8 @@ class Lilypond < Formula
   end
 
   devel do
-    url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.0.tar.gz"
-    sha256 "77ce155feba3871360b529d5d14ade7c8d41808769bee20fe66d918370a5ba4b"
+    url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.1.tar.gz"
+    sha256 "b7ccd72488b0838bc1ae5f490d6acefb292a902d977f6ed05f1eb26d30137e5e"
   end
 
   option "without-fonts", "Install OpenLilyPond Fonts"
