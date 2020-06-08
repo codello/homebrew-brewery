@@ -6,10 +6,11 @@ class CyrillicRequirement < Requirement
     system kpsewhich, "lcy.sty", :out => File::NULL if kpsewhich
   end
 
-  def message; <<~EOS
-    The LaTeX 'cyrillic' package should be installed before building LilyPond. Install it via:
-      tlmgr install cyrillic
-    The installation may still work without this dependency.
-  EOS
+  def message
+    <<~EOS
+      The LaTeX 'cyrillic' package should be installed before building LilyPond. Install it via:
+        tlmgr install cyrillic
+      The installation may still work without this dependency.
+    EOS
   end
 end

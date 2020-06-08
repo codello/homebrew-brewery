@@ -17,6 +17,7 @@ class LilypondAT2211 < Formula
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
   depends_on LatexRequirement => :build
+  depends_on "make" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build
@@ -29,7 +30,6 @@ class LilypondAT2211 < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
-  uses_from_macos "make" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python"
 
@@ -132,7 +132,7 @@ class LilypondAT2211 < Formula
       # For some reason the previous step generates invalid *.dep files in the
       # mf/out directory (using a single space instead of a tab). Deleting these
       # files seems to solve the problem but there may be unforseen side effects.
-      Dir.glob('mf/out/*.dep').each { |file| File.delete(file)}
+      Dir.glob("mf/out/*.dep").each { |file| File.delete(file) }
       system "make", "install"
     end
 

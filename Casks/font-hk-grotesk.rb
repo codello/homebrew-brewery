@@ -2,6 +2,7 @@ cask "font-hk-grotesk" do
   version "1.0"
   sha256 "750e49b186c09e971d51e9831d252402b8d086df7492885a6cbdf1834e98217a"
 
+  # fontsquirrel.com was verified as official when first introduced to the cask
   url "https://www.fontsquirrel.com/fonts/download/hk-grotesk"
   name "HK Grotesk"
   homepage "https://hanken.co/product/hk-grotesk/"

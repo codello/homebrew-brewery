@@ -4,13 +4,14 @@ cask "m4vgear" do
 
   url "https://www.m4vgear.com/m4vgear.dmg"
   name "M4VGear"
-  homepage "http://www.m4vgear.de"
+  homepage "http://www.m4vgear.com/"
 
   app "M4VGear.app"
-  zap trash: [
-               "~/Library/Application Support/M4VGear",
-               "~/Library/Caches/com.m4vgear.converter",
-               "~/Library/Preferences/com.m4vgear.converter.plist",
-               "~/Library/Saved Application State/com.m4vgear.converter.savedState",
-             ]
+
+  zap :trash => [
+    "~/Library/Application Support/M4VGear",
+    "~/Library/Caches/com.m4vgear.converter",
+    "~/Library/Preferences/com.m4vgear.converter.plist",
+    "~/Library/Saved Application State/com.m4vgear.converter.savedState",
+  ]
 end

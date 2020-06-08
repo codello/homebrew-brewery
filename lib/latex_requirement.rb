@@ -8,10 +8,11 @@ class LatexRequirement < Requirement
     metafont && metapost && kpsewhich
   end
 
-  def message; <<~EOS
-    A working LaTeX installation is required for building LilyPond. Install it via one of:
-      brew cask install mactex
-      brew cask install basictex
-  EOS
+  def message
+    <<~EOS
+      A working LaTeX installation is required for building LilyPond. Install it via one of:
+        brew cask install mactex
+        brew cask install basictex
+    EOS
   end
 end

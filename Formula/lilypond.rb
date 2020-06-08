@@ -17,6 +17,7 @@ class Lilypond < Formula
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
   depends_on LatexRequirement => :build
+  depends_on "make" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
   depends_on "texinfo" => :build
@@ -29,7 +30,6 @@ class Lilypond < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
-  uses_from_macos "make" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python"
 
