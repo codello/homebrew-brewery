@@ -1,11 +1,11 @@
 require_relative "../lib/latex_requirement.rb"
 require_relative "../lib/cyrillic_requirement.rb"
 
-class Lilypond < Formula
+class LilypondAT2211 < Formula
   desc "... music notation for everyone"
   homepage "https://lilypond.org"
-  url "http://lilypond.org/download/sources/v2.20/lilypond-2.20.0.tar.gz"
-  sha256 "595901323fbc88d3039ca4bdbc2d8c5ce46b182edcb3ea9c0940eba849bba661"
+  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.1.tar.gz"
+  sha256 "b7ccd72488b0838bc1ae5f490d6acefb292a902d977f6ed05f1eb26d30137e5e"
   head "git://git.savannah.gnu.org/lilypond.git"
 
   option "without-fonts", "Install OpenLilyPond Fonts"
@@ -119,11 +119,20 @@ class Lilypond < Formula
 
     system "./autogen.sh", "--noconfigure"
     mkdir "build" do
+      # The configure step will print some errors as the '@' in the filename
+      # confuses SED (using @ as a delimiter). However this probably only an
+      # issue when using explicit --infodir=/usr/share (which we don't use).
       system "../configure", \
+          # Compilation seems to fail with clang when this flag is not specified.
+          "CXXFLAGS=-Wno-c++11-narrowing", \
           "--prefix=#{prefix}", \
           "--disable-documentation", \
           "--with-texgyre-dir=#{font_dir}"
       system "make", "-j#{Etc.nprocessors + 1}"
+      # For some reason the previous step generates invalid *.dep files in the
+      # mf/out directory (using a single space instead of a tab). Deleting these
+      # files seems to solve the problem but there may be unforseen side effects.
+      Dir.glob('mf/out/*.dep').each { |file| File.delete(file)}
       system "make", "install"
     end
 
