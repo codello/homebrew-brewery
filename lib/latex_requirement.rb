@@ -1,3 +1,8 @@
+# The `LatexRequirement` ensures that Latex is installed. More specifically it
+# ensures the presence of appropriate binaries for metafont, metapost and
+# kpwsewhich.
+#
+# This requirement is used for the lilypond formula.
 class LatexRequirement < Requirement
   fatal true
 

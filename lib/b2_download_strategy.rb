@@ -1,6 +1,15 @@
 require "uri"
 require "download_strategy"
 
+# The B2DownloadStrategy enables downlaods from the backblaze API. In order for
+# it to be usable the following conditions must be satisfied:
+# - The b2-client gem must be present.
+# - The environment variables HOMEBREW_B2_KEY_ID and HOMEBREW_B2_APPLICATION_KEY
+#   must be set to appropriate values.
+#
+# To simplify this process this tap includes a helper command in cmd/brew---b2.rb
+# that can be used by calling brew --b2 install ...
+# Using this command the user will be prompted to enter any missing values.
 class B2DownloadStrategy < CurlDownloadStrategy
   def initialize(url, name, version, **meta)
     super
@@ -24,17 +33,20 @@ class B2DownloadStrategy < CurlDownloadStrategy
 
   private
 
-  def _fetch
+  def _fetch(*)
     require "b2"
     ensure_credentials
     b2 = B2.new(key_id: @key_id, secret: @app_key)
-    url = b2.get_download_url(@bucket, @file)
-    curl_download(url, to: temporary_path)
+    download_url = b2.get_download_url(@bucket, @file)
+    curl_download(download_url, to: temporary_path)
   rescue LoadError
     raise "Install the b2-client gem into the gem repo used by brew."
   end
 end
 
+# We patch the DownloadStrategyDetector to recognize the b2:// URL scheme.
+# Additionally we support the :b2 symbol to specify the use of the
+# `B2DownloadStrategy`.
 class DownloadStrategyDetector
   original_detect_from_url = singleton_class.instance_method(:detect_from_url)
   original_detect_from_symbol = singleton_class.instance_method(:detect_from_symbol)
