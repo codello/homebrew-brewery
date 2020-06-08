@@ -2,6 +2,7 @@ cask "font-chalet" do
   version "1.0"
   sha256 "2df4420988097e94a796b40d53a8849ea1a9a7b2e2509d2ffd026e8399ba4fa8"
 
+  # github.com/google/eddystone/raw/master/branding/assets/Font/Chalet.zip was verified as official when first introduced to the cask
   url "https://github.com/google/eddystone/raw/master/branding/assets/Font/Chalet.zip"
   name "Chalet"
   homepage "https://houseind.com/hi/chalet"
