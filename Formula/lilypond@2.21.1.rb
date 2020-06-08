@@ -11,16 +11,13 @@ class LilypondAT2211 < Formula
   option "without-fonts", "Install OpenLilyPond Fonts"
 
   depends_on "autoconf" => :build
-  depends_on "bison" => :build
   depends_on CyrillicRequirement => :build
-  depends_on "flex" => :build
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
   depends_on LatexRequirement => :build
   depends_on "make" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
-  depends_on "texinfo" => :build
 
   depends_on "fontconfig"
   depends_on "freetype"
@@ -30,7 +27,10 @@ class LilypondAT2211 < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
+  uses_from_macos "bison" => :build
+  uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
+  uses_from_macos "texinfo" => :build
   uses_from_macos "python"
 
   resource "TeX Gyre Font Collection" do
