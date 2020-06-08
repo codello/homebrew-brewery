@@ -1,4 +1,4 @@
-require 'uri'
+require "uri"
 require "download_strategy"
 
 class B2DownloadStrategy < CurlDownloadStrategy
@@ -9,7 +9,7 @@ class B2DownloadStrategy < CurlDownloadStrategy
     unless parsed.host == "backblazeb2.com"
       raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}"
     end
-    _, @bucket, @file = parsed.path.split('/', 3)
+    _, @bucket, @file = parsed.path.split("/", 3)
     raise "URL must contain a bucket and a file path" unless [@bucket, @file].all?
   end
   

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 require "cli/parser"
-require 'readline'
-require 'io/console'
+require "readline"
+require "io/console"
 
 def ensure_env(name, message: "", secret: false, stdin: false)
   ENV[name] = get_env(message, secret, stdin) if ENV[name].blank?
