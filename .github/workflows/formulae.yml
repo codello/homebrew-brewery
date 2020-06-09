@@ -1,0 +1,34 @@
+name: Test Formulae
+on: [push, pull_request]
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
+jobs:
+  test:
+    runs-on: macos-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula:
+          - srtlab
+          - lilypond
+          - lilypond@2.21.1
+    name: Test ${{ matrix.formula }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Update Homebrew
+        run: brew update
+      - name: Install LaTeX
+        if: ${{ startsWith(matrix.formula, 'lilypond') }}
+        run: brew cask install basictex
+      - name: Tap ${{ github.repository }}
+        run: brew tap ${{ github.repository }} .
+      - name: Install ${{ matrix.formula }}
+        run: |
+          if [[ "${{ matrix.formula }}" = lilypond* ]]; then
+            eval "$(/usr/libexec/path_helper)"
+          fi
+          brew install ${{ matrix.formula }}
+      - name: Test ${{ matrix.formula }}
+        run: brew test ${{ matrix.formula }}
