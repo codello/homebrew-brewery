@@ -1,9 +1,9 @@
 class Srtlab < Formula
-  version "0.98"
   desc "SubRip subtitle file converter"
   homepage "https://www.dr-lex.be/software/srtlab.html"
   url "https://github.com/DrLex0/SRTLab/archive/0.98.tar.gz"
   sha256 "33af6b202e537316f2bab4b0709411ec3159c3dddb7f327497c8d9c32d6c9ea4"
+  version "0.98"
 
   def install
     mv "srtlab.pl", "srtlab"
