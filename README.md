@@ -26,6 +26,10 @@ brew --b2 cask install font-yorkten
 
 If you do not have a username/password to access the protected files you cannot use the cask.
 
+## Licensing
+
+The contents of this repository are licensed under the MIT license. Note however that the software that is referenced in this repo may be licensed under different terms.
+
 ## `brew` Documentation
 
 Run `brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
