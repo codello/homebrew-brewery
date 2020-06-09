@@ -52,7 +52,7 @@ class DownloadStrategyDetector
   original_detect_from_symbol = singleton_class.instance_method(:detect_from_symbol)
 
   singleton_class.define_method(:detect_from_url) do |url|
-    return B2DownloadStrategy if url.match? %r{^b2://}
+    return B2DownloadStrategy if url.start_with? "b2://"
 
     original_detect_from_url.bind(self).call(url)
   end
