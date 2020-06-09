@@ -18,6 +18,8 @@ class Lilypond < Formula
   depends_on "make" => :build
   depends_on "pkg-config" => :build
   depends_on "t1utils" => :build
+  # The macOS version of texinfo is too old
+  depends_on "texinfo" => :build
 
   depends_on "fontconfig"
   depends_on "freetype"
@@ -30,7 +32,6 @@ class Lilypond < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
-  uses_from_macos "texinfo" => :build
   uses_from_macos "python"
 
   resource "TeX Gyre Font Collection" do
