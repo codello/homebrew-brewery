@@ -15,7 +15,7 @@ jobs:
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
       - name: Run Test-Bot
-        run: brew test-bot --tap ${{ github.repository }}
+        run: brew test-bot --tap ${{ github.repository }} --only-tap-syntax
   test-b2:
     name: Test B2 Formula
     runs-on: macos-latest

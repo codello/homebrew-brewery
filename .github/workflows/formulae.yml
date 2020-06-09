@@ -32,6 +32,3 @@ jobs:
           brew install ${{ matrix.formula }}
       - name: Test ${{ matrix.formula }}
         run: brew test ${{ matrix.formula }}
-      - name: Test ${{ matrix.formula }}
-        if: ${{ !startsWith(matrix.formula, 'lilypond') }}
-        run: brew test ${{ matrix.formula }}
