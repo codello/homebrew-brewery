@@ -1,16 +1,18 @@
 require_relative "../lib/latex_requirement.rb"
 require_relative "../lib/cyrillic_requirement.rb"
 
-class LilypondAT2211 < Formula
+class LilypondAT2214 < Formula
   desc "... music notation for everyone"
   homepage "https://lilypond.org"
-  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.1.tar.gz"
-  sha256 "b7ccd72488b0838bc1ae5f490d6acefb292a902d977f6ed05f1eb26d30137e5e"
+  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.4.tar.gz"
+  sha256 "db57981fc27d75025efa769a20465ca20b0889b7ae562bbb199886bf986a05f2"
   head "git://git.savannah.gnu.org/lilypond.git"
 
   option "without-fonts", "Install OpenLilyPond Fonts"
 
   depends_on "autoconf" => :build
+  # The macOS version of bison is too old
+  depends_on "bison" => :build
   depends_on CyrillicRequirement => :build
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
@@ -29,7 +31,6 @@ class LilypondAT2211 < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python"
@@ -120,7 +121,7 @@ class LilypondAT2211 < Formula
 
     system "./autogen.sh", "--noconfigure"
     mkdir "build" do
-      # The configure step will print some errors as the '@' in the filename
+      # The configure step will print three errors as the '@' in the filename
       # confuses SED (using @ as a delimiter). However this probably only an
       # issue when using explicit --infodir=/usr/share (which we don't use).
       system "../configure", \
@@ -130,10 +131,6 @@ class LilypondAT2211 < Formula
           "--disable-documentation", \
           "--with-texgyre-dir=#{font_dir}"
       system "make", "-j#{Etc.nprocessors + 1}"
-      # For some reason the previous step generates invalid *.dep files in the
-      # mf/out directory (using a single space instead of a tab). Deleting these
-      # files seems to solve the problem but there may be unforseen side effects.
-      Dir.glob("mf/out/*.dep").each { |file| File.delete(file) }
       system "make", "install"
     end
 
