@@ -1,11 +1,11 @@
 require_relative "../lib/latex_requirement.rb"
 require_relative "../lib/cyrillic_requirement.rb"
 
-class LilypondAT2214 < Formula
+class LilypondAT2216 < Formula
   desc "... music notation for everyone"
   homepage "https://lilypond.org"
-  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.4.tar.gz"
-  sha256 "db57981fc27d75025efa769a20465ca20b0889b7ae562bbb199886bf986a05f2"
+  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.6.tar.gz"
+  sha256 "24aa358d7da5ea32294a4fc98acd72e78606afdc3bd411a331b2490c15b9acb7"
   head "git://git.savannah.gnu.org/lilypond.git"
 
   option "without-fonts", "Install OpenLilyPond Fonts"
