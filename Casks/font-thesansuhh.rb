@@ -1,12 +1,13 @@
-require_relative "../lib/b2_download_strategy.rb" unless defined?(B2DownloadStrategy)
+require_relative "../lib/b2_download_strategy" unless defined?(B2DownloadStrategy)
 
 cask "font-thesansuhh" do
   version "1.003"
   sha256 "b8c0467e09d516311094562b5d7bc41795677566423304c2c2cc50a8eaef99e7"
 
-  # backblazeb2.com/Brewery was verified as official when first introduced to the cask
-  url "b2://backblazeb2.com/Brewery/fonts/thesansuhh-1.003.zip"
+  url "b2://backblazeb2.com/Brewery/fonts/thesansuhh-1.003.zip",
+      verified: "backblazeb2.com/Brewery/"
   name "TheSansUHH"
+  desc "TheSansUHH font family"
   homepage "https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/TheSansUHH"
 
   font "TheSansUHH Regular.ttf"

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "cli/parser"
-require_relative "../lib/auth.rb"
+require_relative "../lib/auth"
 #: `--b2`
 #:
 #: Ensures that protected B2 resources can be downloaded properly.

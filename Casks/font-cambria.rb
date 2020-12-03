@@ -4,6 +4,7 @@ cask "font-cambria" do
 
   url "https://www.wfonts.com/download/data/2014/12/12/cambria/cambria.zip"
   name "Cambria"
+  desc "Cambria font family"
   homepage "https://www.wfonts.com/font/cambria"
 
   font "Cambria.ttf"

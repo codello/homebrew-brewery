@@ -4,11 +4,12 @@ cask "fullcontrol" do
 
   url "https://fullcontrol.cescobaz.com/download/Mac/3.3/FullControlHelper_3.3.dmg"
   name "FullControl"
+  desc "The FullControl Helper"
   homepage "https://fullcontrol.cescobaz.com/"
 
   app "FullControlHelper.app"
 
-  zap :trash => [
+  zap trash: [
     "~/Library/Application Support/com.cescobaz.FullControlHelper",
     "~/Library/Caches/com.cescobaz.FullControlHelper",
     "~/Library/Preferences/com.cescobaz.FullControlHelper.plist",

@@ -13,7 +13,7 @@ jobs:
         formula:
           - srtlab
           - lilypond
-          - lilypond@2.21.1
+          - lilypond-devel
     name: Test ${{ matrix.formula }}
     steps:
       - uses: actions/checkout@v2
@@ -24,6 +24,12 @@ jobs:
         run: brew cask install basictex
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
+        # Installing Guile as a regular dependency causes the workflow to fail
+        # because the binaries already exist.
+      - name: Install Guile
+        if: ${{ startsWith(matrix.formula, 'lilypond') }}
+        run: brew install sadhen/sadhen/guile@1.8
+        continue-on-error: true
       - name: Install ${{ matrix.formula }}
         run: |
           if [[ "${{ matrix.formula }}" = lilypond* ]]; then

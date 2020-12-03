@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # The `LatexRequirement` ensures that Latex is installed. More specifically it
 # ensures the presence of appropriate binaries for metafont, metapost and
 # kpwsewhich.
@@ -6,7 +8,7 @@
 class LatexRequirement < Requirement
   fatal true
 
-  satisfy :build_env => false do
+  satisfy build_env: false do
     metafont = which("mf-nowin") || which("mf") || which("mfw") || which("mfont")
     metapost = which("mpost") || which("metapost")
     kpsewhich = which("kpsewhich")
