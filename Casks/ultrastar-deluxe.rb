@@ -6,7 +6,7 @@ cask "ultrastar-deluxe" do
       verified: "github.com/UltraStar-Deluxe/USDX/"
   appcast "https://github.com/UltraStar-Deluxe/USDX/releases.atom"
   name "UltraStar Deluxe"
-  desc "An open source karaoke party game."
+  desc "UltraStar Deluxe is an open source karaoke party game"
   homepage "https://usdx.eu/"
 
   app "UltraStarDeluxe.app"

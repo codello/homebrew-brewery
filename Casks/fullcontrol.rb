@@ -4,7 +4,7 @@ cask "fullcontrol" do
 
   url "https://fullcontrol.cescobaz.com/download/Mac/3.3/FullControlHelper_3.3.dmg"
   name "FullControl"
-  desc "The FullControl Helper"
+  desc "Helper application for the FullControl server"
   homepage "https://fullcontrol.cescobaz.com/"
 
   app "FullControlHelper.app"

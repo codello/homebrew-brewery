@@ -6,7 +6,7 @@
 class CyrillicRequirement < Requirement
   fatal false
 
-  satisfy :build_env => false do
+  satisfy build_env: false do
     kpsewhich = which("kpsewhich")
     system kpsewhich, "lcy.sty", out: File::NULL if kpsewhich
   end

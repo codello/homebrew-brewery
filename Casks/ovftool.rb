@@ -8,8 +8,8 @@ cask "ovftool" do
   desc "VMware OVF Tool"
   homepage "https://code.vmware.com/tool/ovf/4.1.0"
 
-  pkg "VMWare OVF Tool.pkg", :allow_untrusted => true
+  pkg "VMWare OVF Tool.pkg", allow_untrusted: true
   binary "/Applications/VMWare OVF Tool/ovftool"
 
-  uninstall :pkgutil => "com.vmware.ovftool.application"
+  uninstall pkgutil: "com.vmware.ovftool.application"
 end
