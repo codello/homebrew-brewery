@@ -28,7 +28,9 @@ jobs:
         # because the binaries already exist.
       - name: Install Guile
         if: ${{ startsWith(matrix.formula, 'lilypond') }}
-        run: brew install sadhen/sadhen/guile@1.8
+        run: |
+          brew install sadhen/sadhen/guile@1.8
+          brew link --overwrite guile@1.8
         continue-on-error: true
       - name: Install ${{ matrix.formula }}
         run: |

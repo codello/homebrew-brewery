@@ -5,7 +5,7 @@ cask "ultrastar-manager" do
   url "https://github.com/UltraStar-Deluxe/UltraStar-Manager/releases/download/v1.8.3/uman-1.8.3.dmg"
   appcast "https://github.com/UltraStar-Deluxe/UltraStar-Manager/releases.atom"
   name "UltraStar Manager"
-  desc "The UltraStar Manager desktop app"
+  desc "Manager application for UltraStar songs"
   homepage "https://github.com/UltraStar-Deluxe/UltraStar-Manager/"
 
   app "UltraStarManager.app"
