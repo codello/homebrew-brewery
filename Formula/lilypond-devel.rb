@@ -1,5 +1,5 @@
-require_relative "../lib/latex_requirement.rb"
-require_relative "../lib/cyrillic_requirement.rb"
+require_relative "../lib/latex_requirement"
+require_relative "../lib/cyrillic_requirement"
 
 class LilypondDevel < Formula
   desc "... music notation for everyone"

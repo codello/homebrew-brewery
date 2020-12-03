@@ -27,8 +27,9 @@ jobs:
         # Installing Guile as a regular dependency causes the workflow to fail
         # because the binaries already exist.
       - name: Install Guile
-        if: ${{ startsWith(matrix.formula, "lilypond") }}
-        run: brew install --force sadhen/sadhen/guile@1.8
+        if: ${{ startsWith(matrix.formula, 'lilypond') }}
+        run: brew install sadhen/sadhen/guile@1.8
+        continue-on-error: true
       - name: Install ${{ matrix.formula }}
         run: |
           if [[ "${{ matrix.formula }}" = lilypond* ]]; then
