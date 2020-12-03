@@ -13,7 +13,7 @@ jobs:
         formula:
           - srtlab
           - lilypond
-          - lilypond@2.21.1
+          - lilypond-devel
     name: Test ${{ matrix.formula }}
     steps:
       - uses: actions/checkout@v2
