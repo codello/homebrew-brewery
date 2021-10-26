@@ -4,13 +4,15 @@ require_relative "../lib/cyrillic_requirement"
 class Lilypond < Formula
   desc "... music notation for everyone"
   homepage "https://lilypond.org"
-  url "http://lilypond.org/download/sources/v2.20/lilypond-2.20.0.tar.gz"
-  sha256 "595901323fbc88d3039ca4bdbc2d8c5ce46b182edcb3ea9c0940eba849bba661"
+  url "http://lilypond.org/download/sources/v2.22/lilypond-2.22.1.tar.gz"
+  sha256 "72ac2d54c310c3141c0b782d4e0bef9002d5519cf46632759b1f03ef6969cc30"
   head "git://git.savannah.gnu.org/lilypond.git"
 
   option "without-fonts", "Install OpenLilyPond Fonts"
 
   depends_on "autoconf" => :build
+  # The macOS version of bison is too old
+  depends_on "bison" => :build
   depends_on CyrillicRequirement => :build
   depends_on "fontforge" => :build
   depends_on "gettext" => :build
@@ -29,7 +31,6 @@ class Lilypond < Formula
 
   depends_on "codello/brewery/extractpdfmark" => :recommended
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
   uses_from_macos "perl" => :build
   uses_from_macos "python"

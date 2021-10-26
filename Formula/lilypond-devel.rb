@@ -4,8 +4,8 @@ require_relative "../lib/cyrillic_requirement"
 class LilypondDevel < Formula
   desc "... music notation for everyone"
   homepage "https://lilypond.org"
-  url "http://lilypond.org/download/sources/v2.21/lilypond-2.21.81.tar.gz"
-  sha256 "eb7af474754a696b83379ffcf95ffdf3599320d160ba517dca404883380ab512"
+  url "http://lilypond.org/download/sources/v2.23/lilypond-2.23.3.tar.gz"
+  sha256 "8a833696f7c6d2d4b4ae162ffd0836216c63c3765ea14069d6632d320d6bc308"
   head "git://git.savannah.gnu.org/lilypond.git"
 
   option "without-fonts", "Install OpenLilyPond Fonts"
@@ -121,12 +121,7 @@ class LilypondDevel < Formula
 
     system "./autogen.sh", "--noconfigure"
     mkdir "build" do
-      # The configure step will print three errors as the '@' in the filename
-      # confuses SED (using @ as a delimiter). However this probably only an
-      # issue when using explicit --infodir=/usr/share (which we don't use).
       system "../configure", \
-          # Compilation seems to fail with clang when this flag is not specified.
-          "CXXFLAGS=-Wno-c++11-narrowing", \
           "--prefix=#{prefix}", \
           "--disable-documentation", \
           "--with-texgyre-dir=#{font_dir}"
