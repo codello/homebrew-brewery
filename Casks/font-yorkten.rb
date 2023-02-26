@@ -4,11 +4,11 @@ cask "font-yorkten" do
   version "1.0"
   sha256 "81f982760c588afb871ff2c340eac4f812aed056aa93a38882efb5fe0aad83a5"
 
-  url "b2://backblazeb2.com/Brewery/fonts/yorkten.zip",
-      verified: "backblazeb2.com/Brewery/"
+  url "b2://backblazeb2.com/brewery/fonts/yorkten.zip",
+      verified: "backblazeb2.com/brewery/"
   name "Yorkten"
   desc "Yorkten font family"
-  homepage "https://gitlab.com/Codello/homebrew-brewery/tree/master/Resources/Yorkten"
+  homepage "https://github.com/codello/homebrew-brewery"
 
   font "Yorkten-ConBla.ttf"
   font "Yorkten-ConBlaIt.ttf"
