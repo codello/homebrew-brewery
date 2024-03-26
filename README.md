@@ -16,12 +16,7 @@ brew install https://raw.githubusercontent.com/Codello/homebrew-brewery/master/F
 
 ## Private Resources
 
-Some of the casks in this repository are not publicly usable as the files they reference are not publicly available. One example of such a cask is `font-yorkten`. In order to install such a cask you need to provide appropriate authorization. In most cases this means setting the `HOMEBREW_B2_KEY_ID` and `HOMEBREW_B2_APPLICATION_KEY` environment variables. These will be used to authenticate against backblaze where the yorkten font files are located. As a shorthand you can use the `–b2` command. The command will prompt you for the key id and application key. To install Yorkten for example you might use
-
-```shell
-brew --b2 cask install font-yorkten
-```
-
+Some of the casks in this repository are not publicly usable as the files they reference are not publicly available. One example of such a cask is `font-yorkten`. In order to install such a cask you need to provide appropriate authorization. In most cases this means setting the `HOMEBREW_B2_KEY_ID` and `HOMEBREW_B2_APPLICATION_KEY` environment variables. These will be used to authenticate against backblaze where the yorkten font files are located.
 
 
 If you do not have a username/password to access the protected files you cannot use the cask.
