@@ -1,15 +1,15 @@
 cask "lilypond-font-improviso" do
   version "1.0"
-  sha256 "9eae14b235c4e95dd85f8064598d10182ff7c05755f8776835e4813d76475e38"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/improviso/archive/0753f5a102ac6ee59f9660dfe41b5826c93c993e.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/improviso/archive/refs/heads/master.tar.gz"
   name "Improviso"
   desc "Improviso Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/improviso"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("improviso-0753f5a102ac6ee59f9660dfe41b5826c93c993e")
+  source = Pathname("improviso-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/improviso-#{item}.otf", target: fonts_dir/"otf/improviso-#{item}.otf"

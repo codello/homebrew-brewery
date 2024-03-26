@@ -1,15 +1,15 @@
 cask "lilypond-font-scorlatti" do
   version "1.1"
-  sha256 "c9540e8d33a3964dfe4ddb3e1c64d86a9c9a51b0cdba3d4774071657045d1d73"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/scorlatti/archive/1db87dac9105cd456f5174ba6ca668c94cc553be.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/scorlatti/archive/refs/heads/master.tar.gz"
   name "Scorlatti"
   desc "Scorlatti Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/scorlatti"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("scorlatti-1db87dac9105cd456f5174ba6ca668c94cc553be")
+  source = Pathname("scorlatti-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/scorlatti-#{item}.otf", target: fonts_dir/"otf/scorlatti-#{item}.otf"

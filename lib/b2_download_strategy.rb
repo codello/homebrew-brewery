@@ -12,7 +12,9 @@ class B2DownloadStrategy < CurlDownloadStrategy
     super
     parsed = URI(url)
     raise "Invalid scheme for B2: #{parsed.scheme}" if parsed.scheme != "b2"
-    raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}" unless parsed.host == "backblazeb2.com"
+    if parsed.host != "backblazeb2.com"
+      raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}"
+    end
 
     _, @bucket, @file = parsed.path.split("/", 3)
     raise "URL must contain a bucket and a file path" unless [@bucket, @file].all?

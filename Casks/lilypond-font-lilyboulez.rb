@@ -1,15 +1,15 @@
 cask "lilypond-font-lilyboulez" do
   version "1.0"
-  sha256 "b33ccb335256b206681937f80ceb045f96fb19d64345a36bdaa5125eb660c7f4"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/lilyboulez/archive/e8455fc8401d8f4fd7124d29a55529db19372e02.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/lilyboulez/archive/refs/heads/master.tar.gz"
   name "LilyBoulez"
   desc "LilyBoulez Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/lilyboulez"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("lilyboulez-e8455fc8401d8f4fd7124d29a55529db19372e02")
+  source = Pathname("lilyboulez-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26].each do |item|
     font source/"otf/lilyboulez-#{item}.otf", target: fonts_dir/"otf/lilyboulez-#{item}.otf"

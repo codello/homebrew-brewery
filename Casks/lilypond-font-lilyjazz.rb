@@ -1,15 +1,15 @@
 cask "lilypond-font-lilyjazz" do
   version "2.0"
-  sha256 "e76afcd2d7e61fb80e8cb028632be7c8bf39748781de859329f142e0e40ffb07"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/lilyjazz/archive/8fa7d5548ec553eea9b2189a652e089e1eec4209.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/lilyjazz/archive/refs/heads/master.tar.gz"
   name "LilyJAZZ"
   desc "LilyJAZZ Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/lilyjazz"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("lilyjazz-8fa7d5548ec553eea9b2189a652e089e1eec4209")
+  source = Pathname("lilyjazz-master")
   lily_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}")
   fonts_dir = lily_dir/"fonts"
   %w[11 13 14 16 18 20 23 26 brace].each do |item|

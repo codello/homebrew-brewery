@@ -1,17 +1,17 @@
 cask "lilypond-font-bravura" do
   version "1.18"
-  sha256 "b10a49af95a3f6b645685a560b8a97211519c1b6ee42ef79b95f4734373057cb"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/bravura/archive/53c774476c2060f379d9ef08569b8412b069b9ff.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/bravura/archive/refs/heads/master.tar.gz"
   name "Bravura"
   desc "Bravura Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/bravura"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("bravura-53c774476c2060f379d9ef08569b8412b069b9ff")
+  source = Pathname("bravura-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(Bravura BravuraText).each do |item|
+  %w[Bravura BravuraText].each do |item|
     font source/"otf/#{item}.otf", target: fonts_dir/"otf/#{item}.otf"
     font source/"woff/#{item}.woff", target: fonts_dir/"otf/#{item}.woff"
     font source/"svg/#{item}.svg", target: fonts_dir/"svg/#{item}.svg"

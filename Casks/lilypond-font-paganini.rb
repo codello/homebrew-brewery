@@ -1,15 +1,15 @@
 cask "lilypond-font-paganini" do
   version "1.0"
-  sha256 "3f3cf86d86d1531878fbd4da1ad3768daf40dd34c5ba01a5039e75d9fe4796b2"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/paganini/archive/8e4e55a2c9ae81fe6bc0ce83a5388a9e4c5f7530.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/paganini/archive/refs/heads/master.tar.gz"
   name "Paganini"
   desc "Paganini Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/paganini"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("paganini-8e4e55a2c9ae81fe6bc0ce83a5388a9e4c5f7530")
+  source = Pathname("paganini-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26].each do |item|
     font source/"otf/paganini-#{item}.otf", target: fonts_dir/"otf/paganini-#{item}.otf"

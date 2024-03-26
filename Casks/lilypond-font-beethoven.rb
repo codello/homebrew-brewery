@@ -2,14 +2,14 @@ cask "lilypond-font-beethoven" do
   version "1.1"
   sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/beethoven/archive/refs/heads/master.zip"
+  url "https://github.com/OpenLilyPondFonts/beethoven/archive/refs/heads/master.tar.gz"
   name "Beethoven"
   desc "Beethoven Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/beethoven"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("beethoven-669f400ce0edf7bccd817f10e2015ead78966578")
+  source = Pathname("beethoven-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/beethoven-#{item}.otf", target: fonts_dir/"otf/beethoven-#{item}.otf"

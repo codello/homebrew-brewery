@@ -1,15 +1,15 @@
 cask "lilypond-font-sebastiano" do
   version "1.0"
-  sha256 "dffb486d03701a68370e521c584c356adf1ef87998178b9567da80dd668e88cd"
+  sha256 :no_check
 
-  url "https://github.com/OpenLilyPondFonts/sebastiano/archive/44bf262f20dbb8024bcda38471ddbfb018f01378.tar.gz"
+  url "https://github.com/OpenLilyPondFonts/sebastiano/archive/refs/heads/master.tar.gz"
   name "Sebastiano"
   desc "Sebastiano Font for LilyPond"
   homepage "https://github.com/OpenLilyPondFonts/sebastiano"
 
   depends_on formula: "lilypond"
 
-  source = Pathname("sebastiano-44bf262f20dbb8024bcda38471ddbfb018f01378")
+  source = Pathname("sebastiano-master")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
   %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/sebastiano-#{item}.otf", target: fonts_dir/"otf/sebastiano-#{item}.otf"
