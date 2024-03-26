@@ -16,6 +16,7 @@ jobs:
         run: brew tap ${{ github.repository }} .
       - name: Run Test-Bot
         run: brew test-bot --tap ${{ github.repository }} --only-tap-syntax
+
   test-b2:
     name: Test B2 Formula
     runs-on: macos-latest
@@ -25,8 +26,6 @@ jobs:
         run: brew update
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
-      - name: Install b2-client
-        run: gem install b2-client
       - name: Install formula
         run: brew --b2 install font-yorkten
         env:

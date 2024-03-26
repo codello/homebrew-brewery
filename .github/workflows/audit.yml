@@ -19,4 +19,4 @@ jobs:
         run: brew tap codello/brewery .
 
       - name: Run Audit
-        run: brew audit --strict --appcast --tap codello/brewery
+        run: brew audit --strict --tap codello/brewery
