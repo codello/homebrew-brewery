@@ -11,7 +11,7 @@ cask "lilypond-font-scorlatti" do
 
   source = Pathname("scorlatti-1db87dac9105cd456f5174ba6ca668c94cc553be")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/scorlatti-#{item}.otf", target: fonts_dir/"otf/scorlatti-#{item}.otf"
     font source/"svg/scorlatti-#{item}.svg", target: fonts_dir/"svg/scorlatti-#{item}.svg"
     font source/"svg/scorlatti-#{item}.woff", target: fonts_dir/"svg/scorlatti-#{item}.woff"

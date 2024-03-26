@@ -11,7 +11,7 @@ cask "lilypond-font-profondo" do
 
   source = Pathname("profondo-8cfb668d16baaae167e634006b3c621db8f299c6")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/profondo-#{item}.otf", target: fonts_dir/"otf/profondo-#{item}.otf"
     font source/"svg/profondo-#{item}.svg", target: fonts_dir/"svg/profondo-#{item}.svg"
     font source/"svg/profondo-#{item}.woff", target: fonts_dir/"svg/profondo-#{item}.woff"

@@ -11,7 +11,7 @@ cask "lilypond-font-ross" do
 
   source = Pathname("ross-aa8127fe5668e6069a62d2e8c5f5eb6d028b481c")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/ross-#{item}.otf", target: fonts_dir/"otf/ross-#{item}.otf"
     font source/"svg/ross-#{item}.svg", target: fonts_dir/"svg/ross-#{item}.svg"
     font source/"svg/ross-#{item}.woff", target: fonts_dir/"svg/ross-#{item}.woff"

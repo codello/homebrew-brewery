@@ -11,7 +11,7 @@ cask "lilypond-font-gutenberg1939" do
 
   source = Pathname("gutenberg1939-2316a350aa58270afadc3b63576dde4e254d4bdf")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/gutenberg1939-#{item}.otf", target: fonts_dir/"otf/gutenberg1939-#{item}.otf"
     font source/"svg/gutenberg1939-#{item}.svg", target: fonts_dir/"svg/gutenberg1939-#{item}.svg"
     font source/"svg/gutenberg1939-#{item}.woff", target: fonts_dir/"svg/gutenberg1939-#{item}.woff"

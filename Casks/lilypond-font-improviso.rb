@@ -11,7 +11,7 @@ cask "lilypond-font-improviso" do
 
   source = Pathname("improviso-0753f5a102ac6ee59f9660dfe41b5826c93c993e")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/improviso-#{item}.otf", target: fonts_dir/"otf/improviso-#{item}.otf"
     font source/"svg/improviso-#{item}.svg", target: fonts_dir/"svg/improviso-#{item}.svg"
     font source/"svg/improviso-#{item}.woff", target: fonts_dir/"svg/improviso-#{item}.woff"

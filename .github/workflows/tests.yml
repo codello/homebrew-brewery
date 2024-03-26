@@ -27,7 +27,7 @@ jobs:
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
       - name: Install formula
-        run: brew --b2 install font-yorkten
+        run: brew install font-yorkten
         env:
           HOMEBREW_B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
           HOMEBREW_B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}

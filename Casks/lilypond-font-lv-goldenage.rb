@@ -11,7 +11,7 @@ cask "lilypond-font-lv-goldenage" do
 
   source = Pathname("lv-goldenage-8a92fd3ae947dd66cc385452b7093443a84aa072")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26).each do |item|
+  %w[11 13 14 16 18 20 23 26].each do |item|
     font source/"otf/lv-goldenage-#{item}.otf", target: fonts_dir/"otf/lv-goldenage-#{item}.otf"
     font source/"svg/lv-goldenage-#{item}.svg", target: fonts_dir/"svg/lv-goldenage-#{item}.svg"
     font source/"svg/lv-goldenage-#{item}.woff", target: fonts_dir/"svg/lv-goldenage-#{item}.woff"

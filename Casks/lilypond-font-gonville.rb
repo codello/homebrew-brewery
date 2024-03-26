@@ -11,10 +11,10 @@ cask "lilypond-font-gonville" do
 
   source = Pathname("gonville-a638bc9d2813ff226bdc70436a137e4d69d8de29")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/gonville-#{item}.otf", target: fonts_dir/"otf/gonville-#{item}.otf"
     font source/"svg/gonville-#{item}.svg", target: fonts_dir/"svg/gonville-#{item}.svg"
-    font source/"svg/gonville-#{item}.woff", target: fonts_dir/"svg/gonville-#{item}.woff" unless item == "brace"
+    font source/"svg/gonville-#{item}.woff", target: fonts_dir/"svg/gonville-#{item}.woff" if item != "brace"
   end
 
   caveats "The cask #{token} may need to be reinstalled when LilyPond is updated."

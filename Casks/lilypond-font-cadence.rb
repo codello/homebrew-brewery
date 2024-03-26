@@ -11,7 +11,7 @@ cask "lilypond-font-cadence" do
 
   source = Pathname("cadence-1cc0fb7bcdc72f2e6e6e0f38efd813de502b4216")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26).each do |item|
+  %w[11 13 14 16 18 20 23 26].each do |item|
     font source/"otf/cadence-#{item}.otf", target: fonts_dir/"otf/cadence-#{item}.otf"
     font source/"svg/cadence-#{item}.svg", target: fonts_dir/"svg/cadence-#{item}.svg"
     font source/"svg/cadence-#{item}.woff", target: fonts_dir/"svg/cadence-#{item}.woff"

@@ -11,7 +11,7 @@ cask "lilypond-font-sebastiano" do
 
   source = Pathname("sebastiano-44bf262f20dbb8024bcda38471ddbfb018f01378")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/sebastiano-#{item}.otf", target: fonts_dir/"otf/sebastiano-#{item}.otf"
     font source/"svg/sebastiano-#{item}.svg", target: fonts_dir/"svg/sebastiano-#{item}.svg"
     font source/"svg/sebastiano-#{item}.woff", target: fonts_dir/"svg/sebastiano-#{item}.woff"

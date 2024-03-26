@@ -11,7 +11,7 @@ cask "lilypond-font-haydn" do
 
   source = Pathname("haydn-9e7de8b0a722e650960abaae21c489e554ac02e0")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/haydn-#{item}.otf", target: fonts_dir/"otf/haydn-#{item}.otf"
     font source/"svg/haydn-#{item}.svg", target: fonts_dir/"svg/haydn-#{item}.svg"
     font source/"svg/haydn-#{item}.woff", target: fonts_dir/"svg/haydn-#{item}.woff"

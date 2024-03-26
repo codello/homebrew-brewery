@@ -12,7 +12,7 @@ cask "lilypond-font-lilyjazz" do
   source = Pathname("lilyjazz-8fa7d5548ec553eea9b2189a652e089e1eec4209")
   lily_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}")
   fonts_dir = lily_dir/"fonts"
-  %w(11 13 14 16 18 20 23 26 brace).each do |item|
+  %w[11 13 14 16 18 20 23 26 brace].each do |item|
     font source/"otf/lilyjazz-#{item}.otf", target: fonts_dir/"otf/lilyjazz-#{item}.otf"
     font source/"svg/lilyjazz-#{item}.svg", target: fonts_dir/"svg/lilyjazz-#{item}.svg"
     font source/"svg/lilyjazz-#{item}.woff", target: fonts_dir/"svg/lilyjazz-#{item}.woff"

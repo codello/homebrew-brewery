@@ -11,7 +11,7 @@ cask "lilypond-font-lilyboulez" do
 
   source = Pathname("lilyboulez-e8455fc8401d8f4fd7124d29a55529db19372e02")
   fonts_dir = Pathname("#{Formula["lilypond"].prefix}/share/lilypond/#{Formula["lilypond"].version}/fonts")
-  %w(11 13 14 16 18 20 23 26).each do |item|
+  %w[11 13 14 16 18 20 23 26].each do |item|
     font source/"otf/lilyboulez-#{item}.otf", target: fonts_dir/"otf/lilyboulez-#{item}.otf"
     font source/"svg/lilyboulez-#{item}.svg", target: fonts_dir/"svg/lilyboulez-#{item}.svg"
     font source/"svg/lilyboulez-#{item}.woff", target: fonts_dir/"svg/lilyboulez-#{item}.woff"

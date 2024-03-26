@@ -5,6 +5,7 @@ class Extractpdfmark < Formula
   sha256 "c62f3774c5a97df0517042dd5bbc1c3cdb65687617d1f0a3e8a6910f3191a21b"
 
   livecheck do
+    url :stable
   end
 
   depends_on "make" => :build

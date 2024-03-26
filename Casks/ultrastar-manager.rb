@@ -8,6 +8,7 @@ cask "ultrastar-manager" do
   homepage "https://github.com/UltraStar-Deluxe/UltraStar-Manager/"
 
   livecheck do
+    url :stable
   end
 
   app "UltraStarManager.app"

@@ -9,6 +9,7 @@ cask "ultrastar-deluxe" do
   homepage "https://usdx.eu/"
 
   livecheck do
+    url :stable
   end
 
   app "UltraStarDeluxe.app"

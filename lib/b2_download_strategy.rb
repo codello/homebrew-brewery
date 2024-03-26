@@ -12,9 +12,7 @@ class B2DownloadStrategy < CurlDownloadStrategy
     super
     parsed = URI(url)
     raise "Invalid scheme for B2: #{parsed.scheme}" if parsed.scheme != "b2"
-    if parsed.host != "backblazeb2.com"
-      raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}"
-    end
+    raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}" unless parsed.host == "backblazeb2.com"
 
     _, @bucket, @file = parsed.path.split("/", 3)
     raise "URL must contain a bucket and a file path" unless [@bucket, @file].all?
@@ -29,7 +27,7 @@ class B2DownloadStrategy < CurlDownloadStrategy
     onoe "Missing HOMEBREW_B2_APPLICATION_KEY" if app_key.blank?
     raise "Missing credentials for #{url}" unless [app_key, key_id].all?
 
-    b2 = B2.new(key_id: , secret: app_key)
+    b2 = B2.new(key_id:, secret: app_key)
     download_url = b2.get_download_url(@bucket, @file)
     curl_download(download_url, to: temporary_path)
   end
@@ -51,6 +49,6 @@ class DownloadStrategyDetector
   singleton_class.define_method(:detect_from_symbol) do |symbol|
     return B2DownloadStrategy if symbol == :b2
 
-    original_detect_from_symbol.bind(self).call(symbol)
+    original_detect_from_symbol.bind_call(self, symbol)
   end
 end
