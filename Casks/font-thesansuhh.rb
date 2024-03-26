@@ -2,7 +2,7 @@ require_relative "../lib/b2_download_strategy" unless defined?(B2DownloadStrateg
 
 cask "font-thesansuhh" do
   version "1.003"
-  sha256 "b8c0467e09d516311094562b5d7bc41795677566423304c2c2cc50a8eaef99e7"
+  sha256 :no_check
 
   url "b2://backblazeb2.com/brewery/fonts/thesansuhh-1.003.zip",
       verified: "backblazeb2.com/brewery/"

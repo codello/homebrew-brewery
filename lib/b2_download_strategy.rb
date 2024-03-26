@@ -5,20 +5,14 @@ require "download_strategy"
 require_relative "../vendor/bundle/ruby/2.6.0/gems/b2-client-1.0.7/lib/b2"
 
 # The B2DownloadStrategy enables downlaods from the backblaze API. In order for
-# it to be usable the following conditions must be satisfied:
-# - The b2-client gem must be present.
-# - The environment variables HOMEBREW_B2_KEY_ID and HOMEBREW_B2_APPLICATION_KEY
-#   must be set to appropriate values.
-#
-# To simplify this process this tap includes a helper command in cmd/brew---b2.rb
-# that can be used by calling brew --b2 install ...
-# Using this command the user will be prompted to enter any missing values.
+# it to be usable the environment variables HOMEBREW_B2_KEY_ID and
+# HOMEBREW_B2_APPLICATION_KEY must be set to appropriate values.
 class B2DownloadStrategy < CurlDownloadStrategy
   def initialize(url, name, version, **meta)
     super
     parsed = URI(url)
-    raise "Invalid scheme for B2: #{parsed.scheme}" unless parsed.scheme == "b2"
-    unless parsed.host == "backblazeb2.com"
+    raise "Invalid scheme for B2: #{parsed.scheme}" if parsed.scheme != "b2"
+    if parsed.host != "backblazeb2.com"
       raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}"
     end
 
@@ -29,13 +23,13 @@ class B2DownloadStrategy < CurlDownloadStrategy
   private
 
   def _fetch(*)
-    key_id = ENV["HOMEBREW_B2_KEY_ID"]
-    app_key = ENV["HOMEBREW_B2_APPLICATION_KEY"]
+    key_id = ENV.fetch("HOMEBREW_B2_KEY_ID", nil)
+    app_key = ENV.fetch("HOMEBREW_B2_APPLICATION_KEY", nil)
     onoe "Missing HOMEBREW_B2_KEY_ID" if key_id.blank?
     onoe "Missing HOMEBREW_B2_APPLICATION_KEY" if app_key.blank?
     raise "Missing credentials for #{url}" unless [app_key, key_id].all?
-    
-    b2 = B2.new(key_id: key_id, secret: app_key)
+
+    b2 = B2.new(key_id: , secret: app_key)
     download_url = b2.get_download_url(@bucket, @file)
     curl_download(download_url, to: temporary_path)
   end
@@ -51,7 +45,7 @@ class DownloadStrategyDetector
   singleton_class.define_method(:detect_from_url) do |url|
     return B2DownloadStrategy if url.start_with? "b2://"
 
-    original_detect_from_url.bind(self).call(url)
+    original_detect_from_url.bind_call(self, url)
   end
 
   singleton_class.define_method(:detect_from_symbol) do |symbol|
