@@ -8,6 +8,9 @@ cask "ultrastar-creator" do
   name "UltraStar Creator"
   desc "Create UltraStar karaoke songs from scratch"
   homepage "https://github.com/UltraStar-Deluxe/UltraStar-Creator"
+  
+  livecheck do
+  end
 
   app "UltraStarCreator.app"
 end

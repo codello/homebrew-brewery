@@ -1,8 +1,11 @@
 class Extractpdfmark < Formula
   desc "Extract page mode and named destinations as PDFmark from PDF"
   homepage "https://github.com/trueroad/"
-  url "https://github.com/trueroad/extractpdfmark/releases/download/v1.1.0/extractpdfmark-1.1.0.tar.gz"
-  sha256 "0935045084211fcf68a9faaba2b65c037d0adfd7fa27224d2b6c7ae0fd7964cb"
+  url "https://github.com/trueroad/extractpdfmark/releases/download/v1.1.1/extractpdfmark-1.1.1.tar.gz"
+  sha256 "c62f3774c5a97df0517042dd5bbc1c3cdb65687617d1f0a3e8a6910f3191a21b"
+
+  livecheck do
+  end
 
   depends_on "make" => :build
   depends_on "pkg-config" => :build

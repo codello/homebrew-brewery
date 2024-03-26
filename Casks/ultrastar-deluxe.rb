@@ -8,5 +8,8 @@ cask "ultrastar-deluxe" do
   desc "UltraStar Deluxe is an open source karaoke party game"
   homepage "https://usdx.eu/"
 
+  livecheck do
+  end
+
   app "UltraStarDeluxe.app"
 end

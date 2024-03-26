@@ -6,6 +6,9 @@ cask "ultrastar-manager" do
   name "UltraStar Manager"
   desc "Manager application for UltraStar songs"
   homepage "https://github.com/UltraStar-Deluxe/UltraStar-Manager/"
+  
+  livecheck do
+  end
 
   app "UltraStarManager.app"
 end
