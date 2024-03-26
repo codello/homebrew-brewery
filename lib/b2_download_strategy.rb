@@ -13,6 +13,7 @@ class B2DownloadStrategy < CurlDownloadStrategy
     parsed = URI(url)
     raise "Invalid scheme for B2: #{parsed.scheme}" if parsed.scheme != "b2"
     if parsed.host != "backblazeb2.com"
+      # Maybe this is too restrictive?
       raise "Currently only backblazeb2.com is supported as B2 host: #{parsed.host}"
     end
 
