@@ -2,6 +2,7 @@
 
 require "uri"
 require "download_strategy"
+require_relative "../vendor/bundle/ruby/2.6.0/gems/b2-client-1.0.7/lib/b2"
 
 # The B2DownloadStrategy enables downlaods from the backblaze API. In order for
 # it to be usable the following conditions must be satisfied:
@@ -25,24 +26,18 @@ class B2DownloadStrategy < CurlDownloadStrategy
     raise "URL must contain a bucket and a file path" unless [@bucket, @file].all?
   end
 
-  def ensure_credentials
-    @key_id = ENV["HOMEBREW_B2_KEY_ID"]
-    @app_key = ENV["HOMEBREW_B2_APPLICATION_KEY"]
-    onoe "Missing HOMEBREW_B2_KEY_ID" if @key_id.blank?
-    onoe "Missing HOMEBREW_B2_APPLICATION_KEY" if @app_key.blank?
-    raise "Missing credentials for #{url}" unless [@app_key, @key_id].all?
-  end
-
   private
 
   def _fetch(*)
-    require "b2"
-    ensure_credentials
-    b2 = B2.new(key_id: @key_id, secret: @app_key)
+    key_id = ENV["HOMEBREW_B2_KEY_ID"]
+    app_key = ENV["HOMEBREW_B2_APPLICATION_KEY"]
+    onoe "Missing HOMEBREW_B2_KEY_ID" if key_id.blank?
+    onoe "Missing HOMEBREW_B2_APPLICATION_KEY" if app_key.blank?
+    raise "Missing credentials for #{url}" unless [app_key, key_id].all?
+    
+    b2 = B2.new(key_id: key_id, secret: app_key)
     download_url = b2.get_download_url(@bucket, @file)
     curl_download(download_url, to: temporary_path)
-  rescue LoadError
-    raise "Install the b2-client gem into the gem repo used by brew."
   end
 end
 
