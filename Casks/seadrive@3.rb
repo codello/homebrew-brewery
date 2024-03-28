@@ -12,7 +12,10 @@ cask "seadrive@3" do
     url "https://s3.eu-central-1.amazonaws.com/download.seadrive.org"
     regex(/seadrive-(\d+\.\d+\.\d+)\.pkg/i)
     strategy :xml do |xml, regex|
-      xml.root.get_elements("/ListBucketResult/Contents[starts-with(Key, 'seadrive') and contains(Key, '.pkg')]/Key").map do |item|
+      xml.root.get_elements(
+        "/ListBucketResult/Contents"\
+        "[starts-with(Key, 'seadrive') and contains(Key, '.pkg')]/Key"
+      ).map do |item|
         item.text[regex, 1]
       end
     end
@@ -22,17 +25,17 @@ cask "seadrive@3" do
 
   pkg "seadrive-#{version}.pkg"
 
-  uninstall quit: "com.seafile.seadrive",
+  uninstall quit:       "com.seafile.seadrive",
             login_item: "SeaDrive",
-            pkgutil: "com.seafile.SeaDrive"
+            pkgutil:    "com.seafile.SeaDrive"
 
   zap trash: [
-    "~/Library/Application Scripts/55LCTZ5354.com.seafile.seadrive",
     "~/Library/Application Scripts/com.seafile.seadrive.fprovider",
+    "~/Library/Application Scripts/55LCTZ5354.com.seafile.seadrive",
     "~/Library/Containers/com.seafile.seadrive.fprovider",
     "~/Library/CloudStorage/SeaDrive-*",
     "~/Library/Group Containers/55LCTZ5354.com.seafile.seadrive",
     "~/Library/Logs/DiagnosticReports/seadrive-gui-*",
-    "~/Library/Preferences/com.seafile.Seafile Drive Client.plist"
+    "~/Library/Preferences/com.seafile.Seafile Drive Client.plist",
   ]
 end
