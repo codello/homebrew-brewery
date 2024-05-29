@@ -4,7 +4,7 @@ cask "favtool" do
 
   url "https://github.com/shy-neon/favtool/releases/download/v#{version}/Favtool.app.zip"
   name "Favtool"
-  desc "An app that allows you to easily change icons of your favorite sites on Safari"
+  desc "Easily change icons of your favorite sites on Safari"
   homepage "https://github.com/shy-neon/favtool"
 
   livecheck do
