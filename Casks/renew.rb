@@ -4,7 +4,7 @@ cask "renew" do
 
   url "https://www2.informatik.uni-hamburg.de/TGI/renew/#{version}/Renew-#{version}.dmg"
   name "Renew"
-  desc "A Java-based multi-formalism editor and simulator for reference nets"
+  desc "Java-based multi-formalism editor and simulator for reference nets"
   homepage "https://www2.informatik.uni-hamburg.de/TGI/renew"
 
   livecheck do
