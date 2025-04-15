@@ -4,14 +4,14 @@ cask "renew" do
 
   url "https://www2.informatik.uni-hamburg.de/TGI/renew/#{version}/Renew-#{version}.dmg"
   name "Renew"
-  desc "Renew is a Java-based multi-formalism editor and simulator that provides a flexible modeling approach based on, but not limited to, reference nets"
+  desc "A Java-based multi-formalism editor and simulator for reference nets"
   homepage "https://www2.informatik.uni-hamburg.de/TGI/renew"
-
-  depends_on cask: "temurin"
 
   livecheck do
     url :stable
   end
+
+  depends_on cask: "temurin"
 
   app "Reference Net Workshop.app"
 end
