@@ -5,7 +5,7 @@ cask "renew" do
   url "https://www2.informatik.uni-hamburg.de/TGI/renew/#{version}/Renew-#{version}.dmg"
   name "Renew"
   desc "Renew is a Java-based multi-formalism editor and simulator that provides a flexible modeling approach based on, but not limited to, reference nets"
-  homepage "https://github.com/shy-neon/favtool"
+  homepage "https://www2.informatik.uni-hamburg.de/TGI/renew"
 
   depends_on cask: "temurin"
 
