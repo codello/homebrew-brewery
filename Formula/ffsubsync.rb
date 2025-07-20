@@ -99,6 +99,6 @@ class Ffsubsync < Formula
     inreplace "setup.py" do |s|
       s.gsub!(/^requirements =.*/, "requirements = []")
     end
-	virtualenv_install_with_resources
+    virtualenv_install_with_resources
   end
 end
