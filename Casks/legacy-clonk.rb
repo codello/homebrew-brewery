@@ -50,4 +50,3 @@ cask "legacy-clonk" do
     unsigned_accessibility
   end
 end
-
