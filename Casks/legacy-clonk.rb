@@ -2,7 +2,8 @@ cask "legacy-clonk" do
   version "363"
   sha256 "5cfdd3d13f2905bee8dde5ceb56e55c55ba08da57729cc23848d63fcbd900137"
 
-  url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{version}/LegacyClonk-Mac-x64.zip"
+  url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{version}/LegacyClonk-Mac-x64.zip",
+      verified: "github.com/legacyclonk/LegacyClonk"
   name "LegacyClonk"
   desc "2D Action Adventure Game"
   homepage "https://clonkspot.org/lc-en"
@@ -31,7 +32,6 @@ cask "legacy-clonk" do
     end
     resources.each do |res|
       res.stage do
-        puts appdir / "LegacyClonk"
         (appdir / "LegacyClonk").install res.name
       end
     end
