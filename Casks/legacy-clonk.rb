@@ -17,24 +17,14 @@ cask "legacy-clonk" do
 
   postflight do
     cask = @cask
-    resources = [
-      Resource.new("Graphics.c4g") do
-        url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{cask.version}/Graphics.c4g"
-        sha256 "a064b2ee144ebfe100fa652e36e6f892c745aa2fc28f8cd596f9711aa5d1c835"
-      end,
-      Resource.new("System.c4g") do
-        url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{cask.version}/System.c4g"
-        sha256 "efe00042285f7d49935c4f9724d0068caf489d4ca93bfbe4f7790cf345dcc8a4"
-      end,
-    ]
-    resources.each do |res|
-      res.fetch()
-    end
-    resources.each do |res|
-      res.stage do
-        (appdir / "LegacyClonk").install res.name
-      end
-    end
+    (appdir / "LegacyClonk").install(Resource.new("Graphics.c4g") do
+      url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{cask.version}/Graphics.c4g"
+      sha256 "a064b2ee144ebfe100fa652e36e6f892c745aa2fc28f8cd596f9711aa5d1c835"
+    end)
+    (appdir / "LegacyClonk").install(Resource.new("System.c4g") do
+      url "https://github.com/legacyclonk/LegacyClonk/releases/download/v#{cask.version}/System.c4g"
+      sha256 "efe00042285f7d49935c4f9724d0068caf489d4ca93bfbe4f7790cf345dcc8a4"
+    end)
   end
 
   uninstall_postflight do
