@@ -31,11 +31,11 @@ cask "legacy-clonk" do
     (appdir / "LegacyClonk").rmdir_if_possible
   end
 
-  uninstall quit: "#{appdir}/LegacyClonk/clonk.app",
+  uninstall quit:  "#{appdir}/LegacyClonk/clonk.app",
             trash: [
               "#{appdir}/Clonk.log",
+              "#{appdir}/LegacyClonk/Graphics.c4g",
               "#{appdir}/LegacyClonk/System.c4g",
-              "#{appdir}/LegacyClonk/Graphics.c4g"
             ]
 
   zap trash: [
