@@ -10,7 +10,7 @@ jobs:
     name: Audit Tap Contents
     steps:
       - name: Check out code
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Update Homebrew
         run: brew update
