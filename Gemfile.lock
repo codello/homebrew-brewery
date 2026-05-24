@@ -4,10 +4,14 @@ GEM
     b2-client (1.0.7)
 
 PLATFORMS
+  aarch64-linux
   ruby
 
 DEPENDENCIES
-  b2-client (~> 1.0)
+  b2-client (~> 1.0, >= 1.0.7)
+
+CHECKSUMS
+  b2-client (1.0.7) sha256=27c622a0f4175eda91baba33ff8947afdfed6132a37b316cc052c270d06a589a
 
 BUNDLED WITH
-   1.17.2
+  4.0.10
