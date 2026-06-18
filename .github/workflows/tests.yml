@@ -12,7 +12,7 @@ jobs:
     name: Lint Code Style
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
       - name: Update Homebrew
@@ -26,7 +26,7 @@ jobs:
     name: Test B2 Formula
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Update Homebrew
         run: brew update
       - name: Tap ${{ github.repository }}
