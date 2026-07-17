@@ -31,6 +31,8 @@ jobs:
         run: brew update
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
+      - name: Trust ${{ github.repository }}
+        run: brew trust ${{ github.repository }}
       - name: Install formula
         run: brew install font-yorkten
         env:
