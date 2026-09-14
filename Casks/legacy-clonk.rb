@@ -17,24 +17,24 @@ cask "legacy-clonk" do
   binary "c4group"
 
   postflight_steps do
-    run "/bin/sh", args:            ["-c", <<~SHELL],
-          set -eu -o pipefail
-          /usr/bin/curl --fail --location --output "{{appdir}}/LegacyClonk/Graphics.c4g" \
-            "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/Graphics.c4g"
-          echo "a064b2ee144ebfe100fa652e36e6f892c745aa2fc28f8cd596f9711aa5d1c835  Graphics.c4g" \
-            | /usr/bin/shasum --check --status -
-        SHELL
-                   network_access:  true,
-                   writable_paths:  ["{{appdir}}/LegacyClonk"]
-    run "/bin/sh", args:            ["-c", <<~SHELL],
-          set -eu -o pipefail
-          /usr/bin/curl --fail --location --output "{{appdir}}/LegacyClonk/System.c4g" \
-            "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/System.c4g"
-          echo "efe00042285f7d49935c4f9724d0068caf489d4ca93bfbe4f7790cf345dcc8a4  System.c4g" \
-            | /usr/bin/shasum --check --status -
-        SHELL
-                   network_access:  true,
-                   writable_paths:  ["{{appdir}}/LegacyClonk"]
+    run "/bin/sh", args:           ["-c", <<~SHELL],
+      set -eu -o pipefail
+      /usr/bin/curl --fail --location --output "{{appdir}}/LegacyClonk/Graphics.c4g" \
+        "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/Graphics.c4g"
+      echo "a064b2ee144ebfe100fa652e36e6f892c745aa2fc28f8cd596f9711aa5d1c835  Graphics.c4g" \
+        | /usr/bin/shasum --check --status -
+    SHELL
+                   network_access: true,
+                   writable_paths: ["{{appdir}}/LegacyClonk"]
+    run "/bin/sh", args:           ["-c", <<~SHELL],
+      set -eu -o pipefail
+      /usr/bin/curl --fail --location --output "{{appdir}}/LegacyClonk/System.c4g" \
+        "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/System.c4g"
+      echo "efe00042285f7d49935c4f9724d0068caf489d4ca93bfbe4f7790cf345dcc8a4  System.c4g" \
+        | /usr/bin/shasum --check --status -
+    SHELL
+                   network_access: true,
+                   writable_paths: ["{{appdir}}/LegacyClonk"]
   end
 
   uninstall quit:  "#{appdir}/LegacyClonk/clonk.app",
