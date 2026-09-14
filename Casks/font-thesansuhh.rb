@@ -4,8 +4,7 @@ cask "font-thesansuhh" do
   version "1.003"
   sha256 :no_check
 
-  url "b2://backblazeb2.com/brewery/fonts/thesansuhh-1.003.zip",
-      verified: "backblazeb2.com/brewery/"
+  url "b2://backblazeb2.com/brewery/fonts/thesansuhh-1.003.zip"
   name "TheSansUHH"
   desc "TheSansUHH font family"
   homepage "https://github.com/codello/homebrew-brewery"
