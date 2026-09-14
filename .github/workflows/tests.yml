@@ -18,7 +18,7 @@ jobs:
       - name: Update Homebrew
         run: brew update
       - name: Trust ${{ github.repository }}
-        run: brew trust ${{ github.repository }}
+        run: brew trust codello/brewery
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
       - name: Run Test-Bot
@@ -32,7 +32,7 @@ jobs:
       - name: Update Homebrew
         run: brew update
       - name: Trust ${{ github.repository }}
-        run: brew trust ${{ github.repository }}
+        run: brew trust codello/brewery
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
       - name: Install formula
