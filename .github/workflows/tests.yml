@@ -19,6 +19,8 @@ jobs:
         run: brew update
       - name: Tap ${{ github.repository }}
         run: brew tap ${{ github.repository }} .
+      - name: Trust ${{ github.repository }}
+        run: brew trust ${{ github.repository }}
       - name: Run Test-Bot
         run: brew test-bot --tap ${{ github.repository }} --only-tap-syntax
 
