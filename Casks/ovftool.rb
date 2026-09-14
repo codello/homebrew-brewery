@@ -9,7 +9,7 @@ cask "ovftool" do
 
   depends_on :macos
 
-  pkg "VMWare OVF Tool.pkg", allow_untrusted: true
+  pkg "VMWare OVF Tool.pkg"
   binary "/Applications/VMWare OVF Tool/ovftool"
 
   uninstall pkgutil: "com.vmware.ovftool.application"

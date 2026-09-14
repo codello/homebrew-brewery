@@ -18,7 +18,7 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run Test-Bot
-        run: brew test-bot --tap ${{ github.repository }} --only-tap-syntax
+        run: brew test-bot --tap "$GITHUB_REPOSITORY" --only-tap-syntax
 
   test-b2:
     name: Test B2 Formula

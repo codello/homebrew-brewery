@@ -7,11 +7,11 @@ cask "font-corbel" do
   desc "Corbel font family"
   homepage "https://www.myfonts.com/fonts/ascender/corbel/"
 
+  font "CORBEL.TTF"
+  font "CORBELB.TTF"
   font "Corbel Bold Italic.ttf"
   font "Corbel Bold.ttf"
   font "Corbel Italic.ttf"
-  font "CORBEL.TTF"
-  font "CORBELB.TTF"
   font "corbeli.ttf"
   font "corbelz.ttf"
 end

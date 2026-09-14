@@ -9,9 +9,9 @@ cask "font-thesansuhh" do
   desc "TheSansUHH font family"
   homepage "https://github.com/codello/homebrew-brewery"
 
-  font "TheSansUHH Regular.ttf"
   font "TheSansUHH Bold.ttf"
   font "TheSansUHH Regular Italic.ttf"
+  font "TheSansUHH Regular.ttf"
   font "TheSansUHH_TT_Bold_Caps.ttf"
   font "TheSansUHH_TT_SemiLight_Caps.ttf"
 end

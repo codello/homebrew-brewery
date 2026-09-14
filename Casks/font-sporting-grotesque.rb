@@ -7,6 +7,6 @@ cask "font-sporting-grotesque" do
   desc "Sporting Grotesque font family"
   homepage "https://velvetyne.fr/fonts/sporting-grotesque/"
 
-  font "Sporting-Grotesque-main/fonts/SportingGrotesque-Regular.otf"
   font "Sporting-Grotesque-main/fonts/SportingGrotesque-Bold.otf"
+  font "Sporting-Grotesque-main/fonts/SportingGrotesque-Regular.otf"
 end
