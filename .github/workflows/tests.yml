@@ -12,15 +12,11 @@ jobs:
     name: Lint Code Style
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v7
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@1e34f2e2acaa766b7efacb8c26352e6abbb023f9 # 2026.09.13.1
         with:
-          fetch-depth: 0
-      - name: Update Homebrew
-        run: brew update
-      - name: Trust ${{ github.repository }}
-        run: brew trust codello/brewery
-      - name: Tap ${{ github.repository }}
-        run: brew tap ${{ github.repository }} .
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Run Test-Bot
         run: brew test-bot --tap ${{ github.repository }} --only-tap-syntax
 
@@ -28,13 +24,11 @@ jobs:
     name: Test B2 Formula
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v7
-      - name: Update Homebrew
-        run: brew update
-      - name: Trust ${{ github.repository }}
-        run: brew trust codello/brewery
-      - name: Tap ${{ github.repository }}
-        run: brew tap ${{ github.repository }} .
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@1e34f2e2acaa766b7efacb8c26352e6abbb023f9 # 2026.09.13.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Install formula
         run: brew install font-yorkten
         env:
