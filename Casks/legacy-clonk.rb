@@ -22,7 +22,7 @@ cask "legacy-clonk" do
       cd "{{appdir}}/LegacyClonk"
       /usr/bin/curl --fail --location --output Graphics.c4g \
         "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/Graphics.c4g"
-      echo "4146962f4201f7ed7b504ae8332dc5c4c3b4303d5fc4aca3ad02c77e4c3fbae3 Graphics.c4g" \
+      echo "4146962f4201f7ed7b504ae8332dc5c4c3b4303d5fc4aca3ad02c77e4c3fbae3  Graphics.c4g" \
         | /usr/bin/shasum --check --status -
     SHELL
                    network_access: true,
@@ -32,7 +32,7 @@ cask "legacy-clonk" do
       cd "{{appdir}}/LegacyClonk"
       /usr/bin/curl --fail --location --output System.c4g \
         "https://github.com/legacyclonk/LegacyClonk/releases/download/v{{version}}/System.c4g"
-      echo "d91d9f0c9b56f0ca89ad8810971cbd427ee3391a4f75a841ee58c7aa52c3a478 System.c4g" \
+      echo "d91d9f0c9b56f0ca89ad8810971cbd427ee3391a4f75a841ee58c7aa52c3a478  System.c4g" \
         | /usr/bin/shasum --check --status -
     SHELL
                    network_access: true,
